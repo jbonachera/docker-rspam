@@ -21,6 +21,8 @@ RUN pacman --noconfirm -S openssl libevent glib2 gmime luajit make cmake sqlite 
     cd ~ && \
     rm -rf /usr/local/src/rspamd && \
     pacman -R --noconfirm cmake  gcc git
+RUN mkdir /etc/rspamd/local.d/ && \
+    chown _rspamd: /etc/rspamd/local.d/
 USER _rspamd
 VOLUME /var/lib/rspamd
 COPY entrypoint.sh /sbin/entrypoint
