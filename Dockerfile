@@ -1,7 +1,7 @@
 FROM pritunl/archlinux
 MAINTAINER Julien BONACHERA <julien@bonachera.fr>
 EXPOSE 11334 11333
-CMD ["/usr/bin/rspamd", "-c", "/etc/rspamd/rspamd.docker.conf", "-f"]
+CMD ["/sbin/entrypoint"]
 ENV RSPAMD_VERSION="1.4.0"
 RUN pacman --noconfirm -S openssl libevent glib2 gmime luajit make cmake sqlite hiredis git gcc ragel base-devel && \
     useradd -r _rspamd && \
@@ -23,4 +23,4 @@ RUN pacman --noconfirm -S openssl libevent glib2 gmime luajit make cmake sqlite 
     pacman -R --noconfirm cmake  gcc git
 USER _rspamd
 VOLUME /var/lib/rspamd
-COPY rspamd.conf /etc/rspamd/rspamd.docker.conf
+COPY entrypoint.sh /sbin/entrypoint
