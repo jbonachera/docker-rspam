@@ -3,7 +3,7 @@ MAINTAINER Julien BONACHERA <julien@bonachera.fr>
 EXPOSE 11334 11333
 CMD ["/sbin/entrypoint"]
 ENV RSPAMD_VERSION="1.5.3"
-RUN pacman --noconfirm -S openssl libevent glib2 gmime luajit make cmake sqlite hiredis git gcc ragel base-devel && \
+RUN pacman --noconfirm -S openssl libevent glib2 gmime luajit make cmake sqlite hiredis git gcc ragel base-devel gd && \
     useradd -r _rspamd && \
     mkdir /var/lib/rspamd && \
     chown _rspamd: /var/lib/rspamd && \
