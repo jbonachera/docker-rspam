@@ -13,6 +13,7 @@ RUN pacman --noconfirm -S openssl libevent glib2 gmime luajit make cmake sqlite 
     cd rspamd.build && \
     cmake -DNO_SHARED=ON -DCMAKE_INSTALL_PREFIX=/usr \
           -DCONFDIR=/etc/rspamd -DRUNDIR=/run/rspamd \
+          -DENABLE_FANN=OFF\
           -DLOGDIR=/var/log/rspamd -DRSPAMD_USER='_rspamd' \
           -DDBDIR=/var/lib/rspamd -DWANT_SYSTEMD_UNITS=OFF \
           ../rspamd && \
