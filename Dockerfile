@@ -2,7 +2,7 @@ FROM pritunl/archlinux
 MAINTAINER Julien BONACHERA <julien@bonachera.fr>
 EXPOSE 11334 11333
 CMD ["/sbin/entrypoint"]
-ENV RSPAMD_VERSION="1.6.2"
+ENV RSPAMD_VERSION="1.6.4"
 RUN pacman --noconfirm -S openssl libevent glib2 gmime luajit make cmake sqlite hiredis git gcc ragel base-devel gd && \
     useradd -r _rspamd && \
     mkdir /var/lib/rspamd && \
